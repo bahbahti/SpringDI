@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="musicBean1"
+          class="com.netcracker.firstAndSecondTasks.ClassicalMusic">
+    </bean>
+
+    <bean id="musicBean2"
+          class="com.netcracker.firstAndSecondTasks.RockMusic">
+    </bean>
+
+    <bean id="musicBean3"
+          class="com.netcracker.firstAndSecondTasks.RapMusic">
+    </bean>
+    <!--SI Collection-->
+    <bean id="musicPlayerSI"
+          class="com.netcracker.firstAndSecondTasks.MusicPlayer">
+
+        <property name="musicList">
+            <list>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+                <ref bean="musicBean3"/>
+            </list>
+        </property>
+
+        <property name="musicSet">
+            <list>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+                <ref bean="musicBean3"/>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+                <ref bean="musicBean3"/>
+            </list>
+        </property>
+
+        <property name="musicMap">
+            <map>
+                <entry key="1" value-ref="musicBean1"/>
+                <entry key="2" value-ref="musicBean2"/>
+                <entry key="3" value-ref="musicBean3"/>
+            </map>
+        </property>
+
+    </bean>
+
+
+    <!--CI Collection-->
+    <bean id="musicPlayerCI"
+          class="com.netcracker.firstAndSecondTasks.MusicPlayer">
+
+        <constructor-arg>
+            <list>
+                <ref bean="musicBean3"/>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+            </list>
+        </constructor-arg>
+
+        <constructor-arg>
+            <set>
+                <ref bean="musicBean3"/>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+                <ref bean="musicBean3"/>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+            </set>
+        </constructor-arg>
+
+        <constructor-arg>
+            <map>
+                <entry key="99" value-ref="musicBean1"/>
+                <entry key="88" value-ref="musicBean2"/>
+                <entry key="77" value-ref="musicBean3"/>
+            </map>
+        </constructor-arg>
+
+    </bean>
+
+
+
+
+</beans>

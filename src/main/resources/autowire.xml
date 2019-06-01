@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- byName example -->
+    <bean id="application" class="com.netcracker.autowire.byName.Application" autowire="byName"/>
+
+    <bean id="applicationUser" class="com.netcracker.autowire.byName.ApplicationUser" >
+        <property name="name" value="Petr"/>
+    </bean>
+
+    <!-- byType example -->
+    <bean id="employee" class="com.netcracker.autowire.byType.Employee" autowire="byType"/>
+
+    <bean id="employeeAddress" class="com.netcracker.autowire.byType.EmployeeAddress" >
+        <property name="street" value="Gagarina prospect 53"/>
+        <property name="city" value="Nizhny Novgorod"/>
+    </bean>
+
+    <!-- constructor example -->
+    <bean id="performer" class="com.netcracker.autowire.constructor.Performer" autowire="constructor"/>
+
+    <bean id="instrument" class="com.netcracker.autowire.constructor.Instrument" >
+        <property name="name" value="PIANO"/>
+    </bean>
+
+    <!-- default example (autowire="no") -->
+    <bean id="driver" class="com.netcracker.autowire.no.Driver" autowire="no">
+        <property name="license" ref="license"/>
+    </bean>
+
+    <bean id="license" class="com.netcracker.autowire.no.License" >
+        <property name="number" value="123456ABCD"/>
+    </bean>
+
+</beans>

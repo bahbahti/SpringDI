@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<bean id = "helloWorld" class = "com.netcracker.inheritanceOfBeans.HelloWorld">
+        <property name = "message1" value = "Hello World!"/>
+        <property name = "message2" value = "Hello Second World!"/>
+    </bean>
+
+    <bean id ="helloIndia" class = "com.netcracker.inheritanceOfBeans.HelloIndia" parent = "helloWorld">
+        <property name = "message1" value = "Hello India!"/>
+        <property name = "message3" value = "Third hello from India!"/>
+    </bean>
+</beans>
